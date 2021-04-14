@@ -94,4 +94,8 @@ class DotCom extends Business{
         }
 
     }
+
+    void initialize(){
+
+    }
 }
