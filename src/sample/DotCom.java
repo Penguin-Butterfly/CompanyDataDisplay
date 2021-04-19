@@ -1,6 +1,8 @@
 package sample;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class DotCom extends Business{
@@ -9,11 +11,28 @@ class DotCom extends Business{
     private int FoundingYear;
     private int FiscalYear;
 
+    public void setMarketCap(double marketCap) {
+        MarketCap = marketCap;
+    }
+
+    public static ArrayList<DotCom> getDotComData() {
+        return DotComData;
+    }
+
+    public static void setDotComData(ArrayList<DotCom> dotComData) {
+        DotComData = dotComData;
+    }
+
+    private static ArrayList<DotCom> DotComData;
+
     public DotCom(int rank, String name, double revenue, int employeeCt, String HQLocation, double marketCap, int foundingYear) {
         super(rank, name, revenue, employeeCt);
         this.HQLocation = HQLocation;
         MarketCap = marketCap;
         FoundingYear = foundingYear;
+        if (DotComData == null){
+            DotComData = new ArrayList<DotCom>();
+        }
     }
 
     String getHQLocation() {
@@ -95,7 +114,10 @@ class DotCom extends Business{
 
     }
 
-    void initialize(){
-
+    static void initialize(){
+        String DotComFile = "src\\DotComData";
+        read(DotComFile);
     }
+
+
 }

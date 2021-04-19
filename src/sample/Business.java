@@ -1,5 +1,6 @@
 package sample;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 class Business {
@@ -8,6 +9,7 @@ class Business {
     private String Name;
     private double Revenue;
     private int EmployeeCt;
+    private static Controller listController;
 
     public Business(int rank, String name, double revenue, int employeeCt) {
         this.rank = rank;
@@ -60,4 +62,20 @@ class Business {
     static void describeAll() {
         Businesses.forEach(Business -> System.out.println(Business.toString()));
     }
+
+    public static Controller getMyController() {
+        return listController;
+    }
+
+    public static void setlistController(Controller listController) {
+        Business.listController = listController;
+    }
+
+    public static ArrayList<Business> getAllMyData() {
+        return Businesses;
+    }
+
+
+
+
 }

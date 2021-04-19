@@ -8,28 +8,28 @@
 
 <Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <panes>
-    <TitledPane fx:id="DotComBubble" animated="false" text="DotCom Bubble">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TableView prefHeight="330.0" prefWidth="600.0">
-                    <columns>
-                      <TableColumn prefWidth="36.0" text="Rank" />
-                      <TableColumn prefWidth="204.0" text="Name" />
-                        <TableColumn prefWidth="63.0" text="Revenue" />
-                        <TableColumn prefWidth="51.0" text="Emp. Ct" />
-                        <TableColumn prefWidth="82.0" text="HQ Location" />
-                        <TableColumn prefWidth="73.0" text="Market Cap" />
-                        <TableColumn prefWidth="36.0" text="FY" />
-                        <TableColumn prefWidth="54.0" text="Founded" />
-                    </columns>
-                  </TableView>
-               </children></AnchorPane>
-      </content>
-    </TitledPane>
     <TitledPane animated="false" text="untitled 2">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </TitledPane>
+    <TitledPane animated="false" text="DotCom Bubble">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="DotComBubble" prefHeight="330.0" prefWidth="600.0">
+                    <columns>
+                      <TableColumn fx:id="Rank" prefWidth="36.0" text="Rank" />
+                      <TableColumn fx:id="Name" prefWidth="204.0" text="Name" />
+                        <TableColumn fx:id="Revenue" prefWidth="63.0" text="Revenue" />
+                        <TableColumn fx:id="Employees" prefWidth="51.0" text="Emp. Ct" />
+                        <TableColumn fx:id="HQ" prefWidth="82.0" text="HQ Location" />
+                        <TableColumn fx:id="MCap" prefWidth="73.0" text="Market Cap" />
+                        <TableColumn fx:id="FY" prefWidth="36.0" text="FY" />
+                        <TableColumn fx:id="Founding" prefWidth="54.0" text="Founded" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
       </content>
     </TitledPane>
   </panes>
