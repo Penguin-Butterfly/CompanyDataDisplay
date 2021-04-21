@@ -8,28 +8,27 @@
 
 <Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <panes>
-    <TitledPane animated="false" text="untitled 2">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
-    </TitledPane>
     <TitledPane animated="false" text="DotCom Bubble">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <TableView fx:id="DotComBubble" prefHeight="330.0" prefWidth="600.0">
                     <columns>
-                      <TableColumn fx:id="Rank" prefWidth="36.0" text="Rank" />
-                      <TableColumn fx:id="Name" prefWidth="204.0" text="Name" />
-                        <TableColumn fx:id="Revenue" prefWidth="63.0" text="Revenue" />
-                        <TableColumn fx:id="Employees" prefWidth="51.0" text="Emp. Ct" />
-                        <TableColumn fx:id="HQ" prefWidth="82.0" text="HQ Location" />
-                        <TableColumn fx:id="MCap" prefWidth="73.0" text="Market Cap" />
-                        <TableColumn fx:id="FY" prefWidth="36.0" text="FY" />
-                        <TableColumn fx:id="Founding" prefWidth="54.0" text="Founded" />
+                      <TableColumn fx:id="RankCol" prefWidth="36.0" text="Rank" />
+                      <TableColumn fx:id="NameCol" prefWidth="204.0" text="Name" />
+                        <TableColumn fx:id="RevenueCol" prefWidth="63.0" text="Revenue" />
+                        <TableColumn fx:id="EmployeesCol" prefWidth="51.0" text="Emp. Ct" />
+                        <TableColumn fx:id="HQCol" prefWidth="114.0" text="HQ Location" />
+                        <TableColumn fx:id="MCapCol" prefWidth="71.0" text="Market Cap" />
+                        <TableColumn fx:id="FoundingCol" prefWidth="60.0" text="Founded" />
                     </columns>
                   </TableView>
                </children></AnchorPane>
+      </content>
+    </TitledPane>
+    <TitledPane animated="false" text="Stock Exchange">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
       </content>
     </TitledPane>
   </panes>

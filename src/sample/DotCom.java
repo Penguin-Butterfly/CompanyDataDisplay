@@ -5,11 +5,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class DotCom extends Business{
-    private String HQLocation;
-    private double MarketCap;
+public class DotCom extends Business{
+    public String HQLocation;
+    public double MarketCap;
     private int FoundingYear;
     private int FiscalYear;
+    private static ArrayList<DotCom> DotComData;
 
     public void setMarketCap(double marketCap) {
         MarketCap = marketCap;
@@ -23,16 +24,15 @@ class DotCom extends Business{
         DotComData = dotComData;
     }
 
-    private static ArrayList<DotCom> DotComData;
-
     public DotCom(int rank, String name, double revenue, int employeeCt, String HQLocation, double marketCap, int foundingYear) {
         super(rank, name, revenue, employeeCt);
         this.HQLocation = HQLocation;
-        MarketCap = marketCap;
-        FoundingYear = foundingYear;
+        this.MarketCap = marketCap;
+        this.FoundingYear = foundingYear;
         if (DotComData == null){
             DotComData = new ArrayList<DotCom>();
         }
+        DotComData.add(this);
     }
 
     String getHQLocation() {
@@ -110,6 +110,7 @@ class DotCom extends Business{
             int foundingYear = lineScanner.nextInt();
 
             new DotCom(rank, name, revenue, employeeCt, HQLocation, marketCap, foundingYear);
+
         }
 
     }
@@ -117,6 +118,8 @@ class DotCom extends Business{
     static void initialize(){
         String DotComFile = "src\\DotComData";
         read(DotComFile);
+        getlistController().updateDotComs();
+        Business.describeAll();
     }
 
 

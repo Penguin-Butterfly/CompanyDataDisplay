@@ -3,7 +3,7 @@ package sample;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-class Business {
+public class Business {
     private static ArrayList<Business> Businesses;
     private int rank;
     private String Name;
@@ -13,12 +13,28 @@ class Business {
 
     public Business(int rank, String name, double revenue, int employeeCt) {
         this.rank = rank;
-        Name = name;
-        Revenue = revenue;
-        EmployeeCt = employeeCt;
+        this.Name = name;
+        this.Revenue = revenue;
+        this.EmployeeCt = employeeCt;
 
         if (Businesses == null) Businesses = new ArrayList<Business>();
         Businesses.add(this);
+    }
+
+    public static ArrayList<Business> getBusinesses() {
+        return Businesses;
+    }
+
+    public static void setBusinesses(ArrayList<Business> businesses) {
+        Businesses = businesses;
+    }
+
+    public void setRevenue(double revenue) {
+        Revenue = revenue;
+    }
+
+    public static void setListController(Controller listController) {
+        Business.listController = listController;
     }
 
     int getRank() {
@@ -63,7 +79,7 @@ class Business {
         Businesses.forEach(Business -> System.out.println(Business.toString()));
     }
 
-    public static Controller getMyController() {
+    public static Controller getlistController() {
         return listController;
     }
 
