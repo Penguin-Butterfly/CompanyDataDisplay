@@ -1,16 +1,16 @@
 package sample;
 
-import java.io.File;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class DotCom extends Business{
+public class DotCom extends Business implements Serializable{
     public String HQLocation;
     public double MarketCap;
-    private int FoundingYear;
-    private int FiscalYear;
-    private static ArrayList<DotCom> DotComData;
+    public int FoundingYear;
+    public int FiscalYear;
+    public static ArrayList<DotCom> DotComData;
 
     public void setMarketCap(double marketCap) {
         MarketCap = marketCap;
@@ -24,7 +24,7 @@ public class DotCom extends Business{
         DotComData = dotComData;
     }
 
-    public DotCom(int rank, String name, double revenue, int employeeCt, String HQLocation, double marketCap, int foundingYear) {
+    public DotCom(int rank, String name, float revenue, int employeeCt, String HQLocation, float marketCap, int foundingYear) {
         super(rank, name, revenue, employeeCt);
         this.HQLocation = HQLocation;
         this.MarketCap = marketCap;
@@ -35,35 +35,35 @@ public class DotCom extends Business{
         DotComData.add(this);
     }
 
-    String getHQLocation() {
+    public String getHQLocation() {
         return HQLocation;
     }
 
-    void setHQLocation(String HQLocation) {
+    public void setHQLocation(String HQLocation) {
         this.HQLocation = HQLocation;
     }
 
-    double getMarketCap() {
-        return MarketCap;
+    public double getMarketCap() {
+        return Math.round(MarketCap);
     }
 
-    void setMarketCap(float marketCap) {
+    public void setMarketCap(float marketCap) {
         MarketCap = marketCap;
     }
 
-    int getFoundingYear() {
+    public int getFoundingYear() {
         return FoundingYear;
     }
 
-    void setFoundingYear(int foundingYear) {
+    public void setFoundingYear(int foundingYear) {
         FoundingYear = foundingYear;
     }
 
-    int getFiscalYear() {
+    public int getFiscalYear() {
         return FiscalYear;
     }
 
-    void setFiscalYear(int fiscalYear) {
+    public void setFiscalYear(int fiscalYear) {
         FiscalYear = fiscalYear;
     }
 
@@ -120,6 +120,37 @@ public class DotCom extends Business{
         read(DotComFile);
         getlistController().updateDotComs();
         Business.describeAll();
+    }
+
+
+    static public void save() {
+        if (DotComData != null && !DotComData.isEmpty()) {
+            try {
+                File saveFile = new File("C:\\Users\\Bfly\\Downloads\\School work\\Comp sci\\DotComs");
+                FileOutputStream FileSaved = new FileOutputStream(saveFile);
+                ObjectOutputStream out = new ObjectOutputStream(FileSaved);
+                out.writeObject(DotComData);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    static public boolean load() {
+        File saveFile = new File("C:\\Users\\Bfly\\Downloads\\School work\\Comp sci\\DotComs");
+        if (saveFile.exists()) {
+            try {
+                FileInputStream FileSaved = new FileInputStream(saveFile);
+                ObjectInputStream in = new ObjectInputStream(FileSaved);
+                DotComData = (ArrayList<DotCom>)in.readObject();
+                if (!DotComData.isEmpty()) {
+                    return true;
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return false;
     }
 
 

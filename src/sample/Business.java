@@ -1,15 +1,16 @@
 package sample;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Business {
-    private static ArrayList<Business> Businesses;
-    private int rank;
-    private String Name;
-    private double Revenue;
-    private int EmployeeCt;
-    private static Controller listController;
+public class Business implements Serializable {
+    public static ArrayList<Business> Businesses;
+    public int rank;
+    public String Name;
+    public double Revenue;
+    public int EmployeeCt;
+    public static Controller listController;
 
     public Business(int rank, String name, double revenue, int employeeCt) {
         this.rank = rank;
@@ -37,35 +38,33 @@ public class Business {
         Business.listController = listController;
     }
 
-    int getRank() {
+    public int getRank() {
         return rank;
     }
 
-    void setRank(int rank) {
+    public void setRank(int rank) {
         this.rank = rank;
     }
 
-    String getName() {
+    public String getName() {
         return Name;
     }
 
-    void setName(String name) {
+    public void setName(String name) {
         Name = name;
     }
 
-    double getRevenue() {
-        return Revenue;
-    }
+    public double getRevenue(){return Math.round(Revenue);}
 
-    void setRevenue(float revenue) {
+    public void setRevenue(float revenue) {
         Revenue = revenue;
     }
 
-    int getEmployeeCt() {
+    public int getEmployeeCt() {
         return EmployeeCt;
     }
 
-    void setEmployeeCt(int employeeCt) {
+    public void setEmployeeCt(int employeeCt) {
         EmployeeCt = employeeCt;
     }
 
