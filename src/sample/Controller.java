@@ -2,8 +2,11 @@ package sample;
 
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.converter.FloatStringConverter;
+import javafx.util.converter.IntegerStringConverter;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -29,6 +32,7 @@ public class Controller {
     public void initialize(){
         Business.setlistController(this);
 
+        DotComBubble.setEditable(true);
         RankCol.setCellValueFactory(new PropertyValueFactory<>("rank"));
         NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
         RevenueCol.setCellValueFactory(new PropertyValueFactory<>("Revenue"));
@@ -36,6 +40,29 @@ public class Controller {
         HQCol.setCellValueFactory(new PropertyValueFactory<>("HQLocation"));
         MCapCol.setCellValueFactory(new PropertyValueFactory<>("MarketCap"));
         FoundingCol.setCellValueFactory(new PropertyValueFactory<>("FoundingYear"));
+
+        RankCol.setCellFactory(TextFieldTableCell.<DotCom,Integer>forTableColumn(new IntegerStringConverter()));
+        NameCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        RevenueCol.setCellFactory(TextFieldTableCell.<DotCom,Float>forTableColumn(new FloatStringConverter()));
+        EmployeesCol.setCellFactory(TextFieldTableCell.<DotCom,Integer>forTableColumn(new IntegerStringConverter()));
+        HQCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        MCapCol.setCellFactory(TextFieldTableCell.<DotCom,Float>forTableColumn(new FloatStringConverter()));
+        FoundingCol.setCellFactory(TextFieldTableCell.<DotCom,Integer>forTableColumn(new IntegerStringConverter()));
+
+        RankCol.setOnEditCommit(editEvent ->{
+            int newValue = editEvent.getNewValue();
+            DotCom editedRowObject = editEvent.getRowValue();
+            editedRowObject.setRank(newValue);
+        });
+
+        NameCol.setOnEditCommit(editEvent ->{
+            String newValue = editEvent.getNewValue();
+            DotCom editedRowObject = editEvent.getRowValue();
+            editedRowObject.setName(newValue);
+        });
+
+        
+
 
         //DotCom.initialize();
         boolean DataExists = loadData();
