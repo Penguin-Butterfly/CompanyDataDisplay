@@ -21,15 +21,15 @@
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <VBox layoutX="66.0" layoutY="375.0" prefHeight="200.0" prefWidth="100.0" />
-                  <TableView fx:id="DotComBubble" layoutX="-1.0" layoutY="24.0" prefHeight="438.0" prefWidth="1281.0">
+                  <TableView fx:id="DotComBubble" editable="true" layoutX="-1.0" layoutY="24.0" prefHeight="438.0" prefWidth="1281.0">
                     <columns>
-                      <TableColumn fx:id="RankCol" prefWidth="36.0" text="Rank" />
-                      <TableColumn fx:id="NameCol" prefWidth="561.0" text="Name" />
-                        <TableColumn fx:id="RevenueCol" prefWidth="95.0" text="Revenue" />
-                        <TableColumn fx:id="EmployeesCol" minWidth="0.0" prefWidth="50.0" text="Emp. Ct" />
-                        <TableColumn fx:id="HQCol" prefWidth="361.0" text="HQ Location" />
-                        <TableColumn fx:id="MCapCol" prefWidth="119.0" text="Market Cap" />
-                        <TableColumn fx:id="FoundingCol" prefWidth="58.0" text="Founded" />
+                      <TableColumn fx:id="RankCol" onEditCommit="#saveData" prefWidth="36.0" text="Rank" />
+                      <TableColumn fx:id="NameCol" onEditCommit="#saveData" prefWidth="561.0" text="Name" />
+                        <TableColumn fx:id="RevenueCol" onEditCommit="#saveData" prefWidth="95.0" text="Revenue" />
+                        <TableColumn fx:id="EmployeesCol" minWidth="0.0" onEditCommit="#saveData" prefWidth="50.0" text="Emp. Ct" />
+                        <TableColumn fx:id="HQCol" onEditCommit="#saveData" prefWidth="361.0" text="HQ Location" />
+                        <TableColumn fx:id="MCapCol" onEditCommit="#saveData" prefWidth="119.0" text="Market Cap" />
+                        <TableColumn fx:id="FoundingCol" onEditCommit="#saveData" prefWidth="58.0" text="Founded" />
                     </columns>
                   </TableView>
                   <SplitMenuButton layoutX="1.0" mnemonicParsing="false" text="File">
