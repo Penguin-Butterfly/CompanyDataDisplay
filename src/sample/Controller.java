@@ -41,6 +41,7 @@ public class Controller {
         MCapCol.setCellValueFactory(new PropertyValueFactory<>("MarketCap"));
         FoundingCol.setCellValueFactory(new PropertyValueFactory<>("FoundingYear"));
 
+
         RankCol.setCellFactory(TextFieldTableCell.<DotCom,Integer>forTableColumn(new IntegerStringConverter()));
         NameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         RevenueCol.setCellFactory(TextFieldTableCell.<DotCom,Float>forTableColumn(new FloatStringConverter()));
@@ -50,18 +51,46 @@ public class Controller {
         FoundingCol.setCellFactory(TextFieldTableCell.<DotCom,Integer>forTableColumn(new IntegerStringConverter()));
 
         RankCol.setOnEditCommit(editEvent ->{
-            int newValue = editEvent.getNewValue();
+            Integer newRankValue = editEvent.getNewValue();
             DotCom editedRowObject = editEvent.getRowValue();
-            editedRowObject.setRank(newValue);
+            editedRowObject.setRank(newRankValue);
         });
 
         NameCol.setOnEditCommit(editEvent ->{
-            String newValue = editEvent.getNewValue();
+            String newNameValue = editEvent.getNewValue();
             DotCom editedRowObject = editEvent.getRowValue();
-            editedRowObject.setName(newValue);
+            editedRowObject.setName(newNameValue);
         });
 
-        
+        RevenueCol.setOnEditCommit(editEvent ->{
+            Float newRevValue = editEvent.getNewValue();
+            DotCom editedRowObject = editEvent.getRowValue();
+            editedRowObject.setName(newRevValue);
+        });
+
+        EmployeesCol.setOnEditCommit(editEvent ->{
+            Integer newEmpValue = editEvent.getNewValue();
+            DotCom editedRowObject = editEvent.getRowValue();
+            editedRowObject.setName(newEmpValue);
+        });
+
+        HQCol.setOnEditCommit(editEvent ->{
+            String newHQValue = editEvent.getNewValue();
+            DotCom editedRowObject = editEvent.getRowValue();
+            editedRowObject.setName(newHQValue);
+        });
+
+        MCapCol.setOnEditCommit(editEvent ->{
+            Float newMCapValue = editEvent.getNewValue();
+            DotCom editedRowObject = editEvent.getRowValue();
+            editedRowObject.setName(newMCapValue);
+        });
+
+        FoundingCol.setOnEditCommit(editEvent ->{
+            Integer newYearValue = editEvent.getNewValue();
+            DotCom editedRowObject = editEvent.getRowValue();
+            editedRowObject.setName(newYearValue);
+        });
 
 
         //DotCom.initialize();
